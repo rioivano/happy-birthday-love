@@ -66,3 +66,40 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.sprinkles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.sprinkles::before,
+.sprinkles::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#f9a8d4 1px, transparent 1px),
+                    radial-gradient(#f472b6 1px, transparent 1px),
+                    radial-gradient(#fcd34d 1px, transparent 1px);
+  background-size: 10px 10px;
+  animation: sprinkle-float 20s linear infinite;
+  opacity: 0.3;
+}
+
+.sprinkles::after {
+  animation-duration: 30s;
+  transform: scale(1.5);
+}
+
+@keyframes sprinkle-float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
